@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SuperRef</title>
+    <meta http-equiv="Permissions-Policy" content="xr-spatial-tracking=(self)">
+    <script type="text/javascript" src="https://static.sketchfab.com/api/sketchfab-viewer-1.12.1.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="script.js" defer></script>
+</head>
+
+<body>
+    <div id="mySidebar" class="sidebar">
+        <a class="closebtn" onclick="closeNav()">&times;</a>
+
+        <div class="controls" id="controls">
+            <h1>Options</h1>
+            <h2>Window Mode</h2>
+            <label for="alwaysOnTopCheckbox">
+                <input type="checkbox" id="alwaysOnTopCheckbox">
+                Always On Top
+            </label>
+            
+                <script>
+                    document.getElementById('alwaysOnTopCheckbox').addEventListener('change', function() {
+                        const isChecked = this.checked;
+                        window.api.toggleAlwaysOnTop(isChecked);
+                    });
+                </script>
+        </div>
+    </div>
+    <div class="container">
+        <div id="main">
+            <button class="openbtn" onclick="openNav()">&#9776;</button>
+        </div>
+        <iframe class="sketchfab" id="api-frame"></iframe>
+    </div>
+</body>
+</html>
